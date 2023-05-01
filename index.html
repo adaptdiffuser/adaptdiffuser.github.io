@@ -1,16 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
   <head>
     <meta charset="utf-8" />
     <meta
       name="description"
-      content="Abstract-to-Executable Trajectory Translation for One-Shot Task Generalization."
+      content="AdaptDiffuser: Diffusion Models as Adaptive Self-evolving Planners."
     />
-    <meta name="keywords" content="Nerfies, D-NeRF, NeRF" />
+    <meta name="keywords" content="Reinforcement Learning, Diffusion Model, Trajectory Optimization" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>
-      Abstract-to-Executable Trajectory Translation for One-Shot Task
-      Generalization
+      AdaptDiffuser: Diffusion Models as Adaptive Self-evolving Planners
     </title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -49,98 +48,99 @@
     <main class="content">
       <section class="heading">
         <h1 class="title">
-          Abstract-to-Executable Trajectory Translation for One-Shot Task
-          Generalization
+          AdaptDiffuser: Diffusion Models as Adaptive Self-evolving Planners
         </h1>
         <section class="authors">
           <ul>
             <li>
               <span
                 ><a
-                  href="https://stoneztao.com"
+                  href="https://liang-zx.github.io/"
                   rel="noreferrer"
                   target="_blank"
-                  >Stone Tao</a
-                ></span
+              >Zhixuan Liang</a
+                ><sup>1</sup></span
               >
             </li>
             <li>
               <span
                 ><a
-                  href="https://sites.google.com/view/xiaochen-li"
+                  href="https://yaomarkmu.github.io/"
                   rel="noreferrer"
                   target="_blank"
-                  >Xiaochen Li</a
-                ></span
+                  >Yao Mu</a
+                ><sup>1</sup></span
               >
             </li>
             <li>
               <span
                 ><a
-                  href="https://cseweb.ucsd.edu//~t3mu/"
+                  href="https://dingmyu.github.io/"
                   rel="noreferrer"
                   target="_blank"
-                  >Tongzhou Mu</a
-                ></span
+                  >Mingyu Ding</a
+                ><sup>1 2</sup></span
               >
             </li>
             <li>
               <span
                 ><a
-                  href="https://sites.google.com/view/zhiao-huang"
+                  href="https://scholar.google.com/citations?user=qCXW6sYAAAAJ&hl=zh-CN"
                   rel="noreferrer"
                   target="_blank"
-                  >Zhiao Huang</a
-                ></span
+                  >Fei Ni</a
+                ><sup>3</sup></span
               >
             </li>
             <li>
               <span
                 ><a
-                  href="https://yzqin.github.io/"
+                  href="https://me.berkeley.edu/people/masayoshi-tomizuka/"
                   rel="noreferrer"
                   target="_blank"
-                  >Yuzhe Qin</a
-                ></span
+                  >Masayoshi Tomizuka</a
+                ><sup>2</sup></span
               >
             </li>
             <li>
               <span
                 ><a
-                  href="https://cseweb.ucsd.edu/~haosu/"
+                  href="http://luoping.me/"
                   rel="noreferrer"
                   target="_blank"
-                  >Hao Su</a
-                ></span
+                  >Ping Luo</a
+                ><sup>1</sup></span
               >
             </li>
           </ul>
         </section>
         <section class="affiliations">
           <ul>
-            <li>UC San Diego</li>
+            <li><sup>1</sup>The University of Hong Kong,</li>
+            <li><sup>2</sup>UC Berkeley,</li>
+            <li><sup>3</sup>Tianjin University</li>
           </ul>
         </section>
         <section class="links">
           <ul>
-            <a href="https://arxiv.org/abs/2210.07658" rel="noreferrer" target="_blank">
+            <a href="https://arxiv.org/abs/2302.01877" rel="noreferrer" target="_blank">
               <li>
                 <span class="icon"> <img src="./public/paper.svg" /> </span
                 ><span>Paper</span>
               </li>
             </a>
+<!--            <a-->
+<!--              href="https://youtu.be/ZjRYlRRV9IA"-->
+<!--              rel="noreferrer"-->
+<!--              target="_blank"-->
+<!--            >-->
+<!--              <li>-->
+<!--                <span class="icon"> <img src="./public/video.svg" /> </span-->
+<!--                ><span>Video</span>-->
+<!--              </li>-->
+<!--            </a>-->
             <a
-              href="https://youtu.be/ZjRYlRRV9IA"
-              rel="noreferrer"
-              target="_blank"
-            >
-              <li>
-                <span class="icon"> <img src="./public/video.svg" /> </span
-                ><span>Video</span>
-              </li>
-            </a>
-            <a
-              href="https://github.com/StoneT2000/trajectorytranslation"
+              href="https://github.com/Liang-ZX/adaptdiffuser"
               rel="noreferrer"
               target="_blank"
             >
@@ -156,58 +156,52 @@
         </section>
         <a class="anchor" id="abstract-a"></a>
         <h2>Abstract</h2>
-        <p class="abstract">
-          Training long-horizon robotic policies in complex physical
-          environments is essential for many applications, such as robotic
-          manipulation. However, learning a policy that can generalize to unseen
-          tasks is challenging. In this work, we propose to achieve one-shot
-          task generalization by decoupling plan generation and plan execution.
-          Specifically, our method solves complex long-horizon tasks in three
-          steps: build a paired abstract environment by simplifying geometry and
-          physics, generate abstract trajectories, and solve the original task
-          by an abstract-to-executable trajectory translator. In the abstract
-          environment, complex dynamics such as physical manipulation are
-          removed, making abstract trajectories easier to generate. However,
-          this introduces a large domain gap between abstract trajectories and
-          the actual executed trajectories as abstract trajectories lack
-          low-level details and aren't aligned frame-to-frame with the executed
-          trajectory. In a manner reminiscent of language translation, our
-          approach leverages a seq-to-seq model to overcome the large domain gap
-          between the abstract and executable trajectories, enabling the
-          low-level policy to follow the abstract trajectory. Experimental
-          results on various unseen long-horizon tasks with different robot
-          embodiments demonstrate the practicability of our methods to achieve
-          one-shot task generalization.
+        <p class="abstract" style="font-family: 'Times New Roman', Arial;">
+          Diffusion models have demonstrated their powerful generative capability in many tasks, with great potential to serve as a paradigm for offline reinforcement learning. However, the quality of the diffusion model is limited by the insufficient diversity of training data, which hinders the performance of planning and the generalizability to new tasks. This paper introduces AdaptDiffuser, an evolutionary planning method with diffusion that can self-evolve to improve the diffusion model hence a better planner, not only for seen tasks but can also adapt to unseen tasks. AdaptDiffuser enables the generation of rich synthetic expert data for goal-conditioned tasks using guidance from reward gradients. It then selects high-quality data via a discriminator to finetune the diffusion model, which improves the generalization ability to unseen tasks. Empirical experiments on two benchmark environments and two carefully designed unseen tasks in KUKA industrial robot arm and Maze2D environments demonstrate the effectiveness of AdaptDiffuser. For example, AdaptDiffuser not only outperforms the previous art <a href="https://diffusion-planning.github.io/" rel="noreferrer" target="_blank">Diffuser</a> by 20.8% on Maze2D and 7.5% on MuJoCo locomotion, but also adapts better to new tasks, e.g., KUKA pick-and-place, by 27.9% without requiring additional expert data.
         </p>
       </section>
-
+<!--      <br />-->
       <section class="head-media">
-        <video autoplay="" muted="" loop="" height="100%">
-          <source
-            src="./public/videos/castle-stack-medium.mp4"
-            type="video/mp4"
+        <div style="display: flex; width: 90%; margin: auto">
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <img
+          style="width: 60%"
+          src="./public/images/bar.png"
           />
-        </video>
-        <video autoplay="" muted="" loop="" height="100%">
-          <source src="./public/videos/creeperonsnow.mp4" type="video/mp4" />
-        </video>
-        <video autoplay="" muted="" loop="" height="100%">
-          <source src="./public/videos/snowgolem.mp4" type="video/mp4" />
-        </video>
-        <video autoplay="" muted="" loop="" height="100%">
-          <source src="./public/videos/torch.mp4" type="video/mp4" />
-        </video>
-        <br />
-        <p class="caption">
-          Videos of succesful long-horizon block stacking tasks performed in the
-          real-world using a trajectory translation policy trained in
-          simulation. Tasks are unseen and require manipulation of blocks in
-          locations beyond the original training distribution.
-        </p>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <p class="caption" style="text-align: justify; font-family: 'Times New Roman'"><br />
+            <strong>Overall framework and performance comparison of AdaptDiffuser.</strong> It enables diffusion models to generate rich synthetic expert data using guidance from reward gradients of either seen or unseen goal-conditioned tasks. Then, it iteratively selects high-quality data via a discriminator to finetune the diffusion model for self-evolving, leading to improved performance on seen tasks and better generalizability to unseen tasks.
+          </p>
+
+        </div>
       </section>
+<!--      <section class="head-media">-->
+<!--        <video autoplay="" muted="" loop="" height="100%">-->
+<!--          <source-->
+<!--            src="./public/videos/castle-stack-medium.mp4"-->
+<!--            type="video/mp4"-->
+<!--          />-->
+<!--        </video>-->
+<!--        <video autoplay="" muted="" loop="" height="100%">-->
+<!--          <source src="./public/videos/creeperonsnow.mp4" type="video/mp4" />-->
+<!--        </video>-->
+<!--        <video autoplay="" muted="" loop="" height="100%">-->
+<!--          <source src="./public/videos/snowgolem.mp4" type="video/mp4" />-->
+<!--        </video>-->
+<!--        <video autoplay="" muted="" loop="" height="100%">-->
+<!--          <source src="./public/videos/torch.mp4" type="video/mp4" />-->
+<!--        </video>-->
+<!--        <br />-->
+<!--        <p class="caption">-->
+<!--          Videos of succesful long-horizon block stacking tasks performed in the-->
+<!--          real-world using a trajectory translation policy trained in-->
+<!--          simulation. Tasks are unseen and require manipulation of blocks in-->
+<!--          locations beyond the original training distribution.-->
+<!--        </p>-->
+<!--      </section>-->
       <a class="anchor" id="tr2-a"></a>
       <section class="details">
-        <h2>Trajectory Translation (TR<sup>2</sup>)</h2>
+        <h2>Framework of AdaptDiffuser</h2>
         <!-- <p>
           The core idea of our work is to simplify task-solving by enabling the
           low-level agent to explicitly focus only on low-level skills such as
@@ -215,53 +209,21 @@
           a high-level agent. The objective of the low-level agent now is to
           simply follow the high-level agent as closely as possible.
         </p> -->
-        <p>
-          Prior approaches have utilized a one-shot imitation learning paradigm
-          where policies can look at a demonstration/trajectory and imitate it,
-          bringing great potential for task-generalization by simply tailoring
-          the trajectory. However, typically these trajectories are human video
-          demonstrations or low-level demonstrations, both of which are
-          infeasible to generate for difficult long-horizon tasks or re-generate
-          in order to re-plan.
+        <p> To improve the adaptability of the diffusion model to diverse tasks, rich data with distinct objectives is generated, guided by each task’s reward function. During the diffusion denoising process, we utilize a pre-trained denoising U-Net to progressively generate high-quality trajectories. At each denoising time step, we take the task-specific reward of a trajectory to adjust the gradient of state and action sequence, thereby creating trajectories that align with specific task objectives. Subsequently, the generated synthetic trajectory is evaluated by a discriminator to see if it meets the standards. If yes, it is incorporated into a data pool to fine-tune the diffusion model. The procedure iteratively enhances the generalizability of our model for both seen and unseen settings.
         </p>
-        <p>
-          Thus, we seek to simplify this problem by improving the scalability
-          and feasibility by utilizing simple high-level agents that generate
-          <strong>abstract trajectories</strong>. Abstract trajectories only
-          encode simple information about the task at hand. Concretely, in our
-          environments our abstract trajectories simply record the 2D/3D
-          position of objects in the scene over time, tasking the low-level
-          agent to attempt to manipulate the world in a similar manner to
-          achieve a desired task. These high-level agents are pointmasses that
-          can easily move around in space and magically grasp objects, making
-          abstract trajectory generation simple and scalable. As the abstract
-          trajectory lacks low-level details, it doesn't always align
-          frame-to-frame to the actual executed trajectory and creates a domain
-          gap. We bridge the domain gap with the use of
-          <strong>transformers</strong> in order to better discover the
-          relationship between abstract and executed trajectories.
-        </p>
-        <!-- <p>
-          Now the problem remains is bridging the domain gap between the
-          abstract trajectory and the actual executed trajectory, which may not
-          have frame-to-frame alignment. We tackle this problem by utilizing
-          seq-to-seq models, specifically transformers, which free us from the
-          restriction of frame-to-frame alignment and brdige the domain gap.
-        </p> -->
-        <!-- <p>Thus our contributions are three folded: We provide a practical solution </p> -->
-        <p>
-          The use of abstract trajectories enables flexible definition of novel
-          tasks by writing a simple high-level agent to magically move objects
-          around in space. The transformer architecture enables us to more
-          easily follow the abstract trajectory as closely as possible. The
-          combination of abstract trajectories and transformers enables
-          <strong>TR<sup>2</sup></strong> to solve unseen long-horizon tasks. By
-          evaluating our method on a navigation-based task and three
-          manipulation tasks, we find that our agent achieves strong one-shot
-          generalization to new tasks, while being robust to intentional
-          interventions or mistakes via re-planning.
-        </p>
-        <!-- <br /> -->
+
+        <div style="display: flex; margin: auto; width: 95%">
+          <img
+          style="width: 50%"
+          src="./public/images/framework.png"
+          />
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <br />
+          <img
+          style="width: 50%;%"
+          src="./public/video/video1.gif"
+          />
+        </div>
         <!-- <h2>Method</h2>
         <p>
           Below shows an illustration of the abstract-to-executable trajectory
@@ -442,20 +404,20 @@
       </section>
       <section class="citation">
         <h2>Bibtex</h2>
-        <pre><code>@article{tao2022tr2,
-  title     = {Abstract-to-Executable Trajectory Translation for One-Shot Task Generalization}, 
-  author    = {Tao, Stone and Li, Xiaochen and Mu, Tongzhou and Huang, Zhiao and Qin, Yuzhe and Su, Hao},
-  journal   = {arXiv},
-  year      = {2022},
+        <pre><code>@article{liang2023adaptdiffuser,
+  title={AdaptDiffuser: Diffusion Models as Adaptive Self-evolving Planners},
+  author={Liang, Zhixuan and Mu, Yao and Ding, Mingyu and Ni, Fei and Tomizuka, Masayoshi and Luo, Ping},
+  journal={arXiv preprint arXiv:2302.01877},
+  year={2023}
 }</code></pre>
       </section>
-      <section class="acknowledgements">
-        <h2>Acknowledgements</h2>
-        <p>
-          Special thanks to Jiayuan Gu for feedback on figures, and additional
-          members of the SU Lab for writing feedback.
-        </p>
-      </section>
+<!--      <section class="acknowledgements">-->
+<!--        <h2>Acknowledgements</h2>-->
+<!--        <p>-->
+<!--          Special thanks to Jiayuan Gu for feedback on figures, and additional-->
+<!--          members of the SU Lab for writing feedback.-->
+<!--        </p>-->
+<!--      </section>-->
     </main>
   </body>
 </html>
