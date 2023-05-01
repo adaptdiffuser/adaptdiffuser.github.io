@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="description"
+      content="Abstract-to-Executable Trajectory Translation for One-Shot Task Generalization."
+    />
+    <meta name="keywords" content="Nerfies, D-NeRF, NeRF" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      Abstract-to-Executable Trajectory Translation for One-Shot Task
+      Generalization
+    </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="./public/index.css" rel="stylesheet" />
+    <link href="./public/media.css" rel="stylesheet" />
+    <link href="./public/sidebars.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="./public/js/base.js"></script>
+  </head>
+
+  <body>
+    <div class="sidebarsWrapper">
+      <div class="sidebars">
+        <a class="barWrapper" clear href="#abstract-a" id="bar2"
+          ><span>Abstract</span>
+          <div class="bar"></div
+        ></a>
+        <a class="barWrapper" clear href="#tr2-a" id="bar3"
+          ><span>Trajectory Translation</span>
+          <div class="bar"></div
+        ></a>
+        <a class="barWrapper" clear href="#results-a" id="bar4"
+          ><span>Results</span>
+          <div class="bar"></div
+        ></a>
+        <a class="barWrapper" clear href="#attn-a" id="bar5"
+          ><span>Attention Analysis</span>
+          <div class="bar"></div
+        ></a>
+      </div>
+    </div>
+    <main class="content">
+      <section class="heading">
+        <h1 class="title">
+          Abstract-to-Executable Trajectory Translation for One-Shot Task
+          Generalization
+        </h1>
+        <section class="authors">
+          <ul>
+            <li>
+              <span
+                ><a
+                  href="https://stoneztao.com"
+                  rel="noreferrer"
+                  target="_blank"
+                  >Stone Tao</a
+                ></span
+              >
+            </li>
+            <li>
+              <span
+                ><a
+                  href="https://sites.google.com/view/xiaochen-li"
+                  rel="noreferrer"
+                  target="_blank"
+                  >Xiaochen Li</a
+                ></span
+              >
+            </li>
+            <li>
+              <span
+                ><a
+                  href="https://cseweb.ucsd.edu//~t3mu/"
+                  rel="noreferrer"
+                  target="_blank"
+                  >Tongzhou Mu</a
+                ></span
+              >
+            </li>
+            <li>
+              <span
+                ><a
+                  href="https://sites.google.com/view/zhiao-huang"
+                  rel="noreferrer"
+                  target="_blank"
+                  >Zhiao Huang</a
+                ></span
+              >
+            </li>
+            <li>
+              <span
+                ><a
+                  href="https://yzqin.github.io/"
+                  rel="noreferrer"
+                  target="_blank"
+                  >Yuzhe Qin</a
+                ></span
+              >
+            </li>
+            <li>
+              <span
+                ><a
+                  href="https://cseweb.ucsd.edu/~haosu/"
+                  rel="noreferrer"
+                  target="_blank"
+                  >Hao Su</a
+                ></span
+              >
+            </li>
+          </ul>
+        </section>
+        <section class="affiliations">
+          <ul>
+            <li>UC San Diego</li>
+          </ul>
+        </section>
+        <section class="links">
+          <ul>
+            <a href="https://arxiv.org/abs/2210.07658" rel="noreferrer" target="_blank">
+              <li>
+                <span class="icon"> <img src="./public/paper.svg" /> </span
+                ><span>Paper</span>
+              </li>
+            </a>
+            <a
+              href="https://youtu.be/ZjRYlRRV9IA"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <li>
+                <span class="icon"> <img src="./public/video.svg" /> </span
+                ><span>Video</span>
+              </li>
+            </a>
+            <a
+              href="https://github.com/StoneT2000/trajectorytranslation"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <li>
+                <span class="icon">
+                  <img src="./public/github.svg" />
+                </span>
+                <span>Code</span>
+              </li>
+            </a>
+            <!-- <a><li>Video</li></a> -->
+          </ul>
+        </section>
+        <a class="anchor" id="abstract-a"></a>
+        <h2>Abstract</h2>
+        <p class="abstract">
+          Training long-horizon robotic policies in complex physical
+          environments is essential for many applications, such as robotic
+          manipulation. However, learning a policy that can generalize to unseen
+          tasks is challenging. In this work, we propose to achieve one-shot
+          task generalization by decoupling plan generation and plan execution.
+          Specifically, our method solves complex long-horizon tasks in three
+          steps: build a paired abstract environment by simplifying geometry and
+          physics, generate abstract trajectories, and solve the original task
+          by an abstract-to-executable trajectory translator. In the abstract
+          environment, complex dynamics such as physical manipulation are
+          removed, making abstract trajectories easier to generate. However,
+          this introduces a large domain gap between abstract trajectories and
+          the actual executed trajectories as abstract trajectories lack
+          low-level details and aren't aligned frame-to-frame with the executed
+          trajectory. In a manner reminiscent of language translation, our
+          approach leverages a seq-to-seq model to overcome the large domain gap
+          between the abstract and executable trajectories, enabling the
+          low-level policy to follow the abstract trajectory. Experimental
+          results on various unseen long-horizon tasks with different robot
+          embodiments demonstrate the practicability of our methods to achieve
+          one-shot task generalization.
+        </p>
+      </section>
+
+      <section class="head-media">
+        <video autoplay="" muted="" loop="" height="100%">
+          <source
+            src="./public/videos/castle-stack-medium.mp4"
+            type="video/mp4"
+          />
+        </video>
+        <video autoplay="" muted="" loop="" height="100%">
+          <source src="./public/videos/creeperonsnow.mp4" type="video/mp4" />
+        </video>
+        <video autoplay="" muted="" loop="" height="100%">
+          <source src="./public/videos/snowgolem.mp4" type="video/mp4" />
+        </video>
+        <video autoplay="" muted="" loop="" height="100%">
+          <source src="./public/videos/torch.mp4" type="video/mp4" />
+        </video>
+        <br />
+        <p class="caption">
+          Videos of succesful long-horizon block stacking tasks performed in the
+          real-world using a trajectory translation policy trained in
+          simulation. Tasks are unseen and require manipulation of blocks in
+          locations beyond the original training distribution.
+        </p>
+      </section>
+      <a class="anchor" id="tr2-a"></a>
+      <section class="details">
+        <h2>Trajectory Translation (TR<sup>2</sup>)</h2>
+        <!-- <p>
+          The core idea of our work is to simplify task-solving by enabling the
+          low-level agent to explicitly focus only on low-level skills such as
+          object manipulation and leave the high-level planning to be solved by
+          a high-level agent. The objective of the low-level agent now is to
+          simply follow the high-level agent as closely as possible.
+        </p> -->
+        <p>
+          Prior approaches have utilized a one-shot imitation learning paradigm
+          where policies can look at a demonstration/trajectory and imitate it,
+          bringing great potential for task-generalization by simply tailoring
+          the trajectory. However, typically these trajectories are human video
+          demonstrations or low-level demonstrations, both of which are
+          infeasible to generate for difficult long-horizon tasks or re-generate
+          in order to re-plan.
+        </p>
+        <p>
+          Thus, we seek to simplify this problem by improving the scalability
+          and feasibility by utilizing simple high-level agents that generate
+          <strong>abstract trajectories</strong>. Abstract trajectories only
+          encode simple information about the task at hand. Concretely, in our
+          environments our abstract trajectories simply record the 2D/3D
+          position of objects in the scene over time, tasking the low-level
+          agent to attempt to manipulate the world in a similar manner to
+          achieve a desired task. These high-level agents are pointmasses that
+          can easily move around in space and magically grasp objects, making
+          abstract trajectory generation simple and scalable. As the abstract
+          trajectory lacks low-level details, it doesn't always align
+          frame-to-frame to the actual executed trajectory and creates a domain
+          gap. We bridge the domain gap with the use of
+          <strong>transformers</strong> in order to better discover the
+          relationship between abstract and executed trajectories.
+        </p>
+        <!-- <p>
+          Now the problem remains is bridging the domain gap between the
+          abstract trajectory and the actual executed trajectory, which may not
+          have frame-to-frame alignment. We tackle this problem by utilizing
+          seq-to-seq models, specifically transformers, which free us from the
+          restriction of frame-to-frame alignment and brdige the domain gap.
+        </p> -->
+        <!-- <p>Thus our contributions are three folded: We provide a practical solution </p> -->
+        <p>
+          The use of abstract trajectories enables flexible definition of novel
+          tasks by writing a simple high-level agent to magically move objects
+          around in space. The transformer architecture enables us to more
+          easily follow the abstract trajectory as closely as possible. The
+          combination of abstract trajectories and transformers enables
+          <strong>TR<sup>2</sup></strong> to solve unseen long-horizon tasks. By
+          evaluating our method on a navigation-based task and three
+          manipulation tasks, we find that our agent achieves strong one-shot
+          generalization to new tasks, while being robust to intentional
+          interventions or mistakes via re-planning.
+        </p>
+        <!-- <br /> -->
+        <!-- <h2>Method</h2>
+        <p>
+          Below shows an illustration of the abstract-to-executable trajectory
+          translation architecture. All
+          <span style="color: blue">high-level states</span> from the abstract
+          trajectory are fed through one encoder and the past k
+          <span style="color: orange">low-level states</span> are fed through a
+          separate encoder to create tokens. The tokens form a sequence that is
+          given to the transformer model, and the final output embedding z<sub
+            >n+k-1</sub
+          >
+          is passed through an MLP to produce
+          <span style="color: red">actions</span>.
+        </p>
+        <img
+          style="width: 100%"
+          src="./public/translation_transformer_architecture.png"
+        />
+        <p>
+          This model serves as the backbone and we train a policy using PPO and
+          a general trajectory following reward (detailed in equation 1 of the
+          paper) that encourages the agent to mimic the abstract trajectory as
+          closely as possible.
+        </p> -->
+        <a class="anchor" id="results-a"></a>
+        <h2>Results</h2>
+        <p>
+          We show example translations of abstract trajectories executed
+          trajectories below as well as detail the environments used and domain
+          gaps bridged. The left column of videos shows the abstract trajectory
+          and the right column shows the executed trajectory. The high-level
+          agents are written using simple heuristics and are represented as a
+          point mass floating in 2D/3D space. As the abstract trajectory lacks
+          low-level details, the low-level agent must learn and discover these
+          details such as object manipulation and apply them while mimicing the
+          abstract trajectory. Furthermore, re-planning is a feasible feature as
+          abstract trajectories can be re-generated to handle mistakes or
+          external interventions.
+          <!-- Note that while objects like blocks and drawers are rendered in the abstract trajectory display, the abstract trajectory itself only contains 3D position information. -->
+        </p>
+
+        <div class="abstractexecutable">
+          <p>
+            Show abstract-to-executable translations on
+            <select id="task-select">
+              <option>Test Tasks</option>
+              <option>Train Tasks</option>
+            </select>
+          </p>
+          <div class="col-title">
+            <p>Abstract Trajectory</p>
+            <p>Executed Trajectory</p>
+          </div>
+          <div>
+            <video autoplay="" muted="" loop="" height="100%">
+              <source
+                src="./public/videos/box_high_level.mp4"
+                type="video/mp4"
+              />
+            </video>
+            <video autoplay="" muted="" loop="" height="100%">
+              <source
+                src="./public/videos/box_low_level.mp4"
+                type="video/mp4"
+              />
+            </video>
+            <p>
+              <strong>Box Pusher</strong> <br />
+              The training task is to control an agent (black box) to move a
+              green box to a target (blue sphere). The high-level agent can
+              magically grasp and thus drag the green box. However, the
+              low-level agent is restricted to only pushing and must process the
+              abstract trajectory to determine which direction to push the green
+              box in. At test time there are obstacles observable only by the
+              high-level agent.
+            </p>
+          </div>
+          <div>
+            <video autoplay="" muted="" loop="" height="100%">
+              <source
+                src="./public/videos/couch_moving_high_level.mp4"
+                type="video/mp4"
+              />
+            </video>
+            <video autoplay="" muted="" loop="" height="100%">
+              <source
+                src="./public/videos/couch_moving_low_level.mp4"
+                type="video/mp4"
+              />
+            </video>
+            <p>
+              <strong>Couch Moving</strong> <br />
+              The training task is to move the couch shaped agent through a map
+              of chambers and corners. The agent's couch morphology means that
+              the agent must rotate in chambers ahead of time in order to go
+              through corners. The high-level agent simply tells the low-level
+              agent the path through the map, indicating where corners are, but
+              it is up to the low-level agent to process this information to
+              determine when to rotate in chambers. At test time, maps are
+              longer and vary more.
+            </p>
+          </div>
+          <div>
+            <video autoplay="" muted="" loop="" height="100%">
+              <source
+                src="./public/videos/stack_high_level.mp4"
+                type="video/mp4"
+              />
+            </video>
+            <video autoplay="" muted="" loop="" height="100%">
+              <source
+                src="./public/videos/stack_low_level.mp4"
+                type="video/mp4"
+              />
+            </video>
+            <p>
+              <strong>Block Stacking</strong> <br />
+              The training task is to stack a block with a robot arm. The
+              high-level agent can magically grasp and release blocks anywhere
+              and move easily through space. The low-level agent must process
+              the abstract trajectory to determine where to pick up the block
+              and where to stack it. At test time an agent has to stack multiple
+              blocks in a row in locations beyond the training distribution.
+            </p>
+          </div>
+          <div>
+            <video autoplay="" muted="" loop="" height="100%">
+              <source
+                src="./public/videos/drawer_high_level.mp4"
+                type="video/mp4"
+              />
+            </video>
+            <video autoplay="" muted="" loop="" height="100%">
+              <source
+                src="./public/videos/drawer_low_level.mp4"
+                type="video/mp4"
+              />
+            </video>
+            <p>
+              <strong>Open Drawer</strong> <br />
+              The training task is open various drawers on cabinets with a
+              mobile robot arm. The high-level agent can magically grasp and
+              pull open drawers easily. The low-level agent must process the
+              abstract trajectory to determine how to follow the abstract
+              trajectory and how to pull open the drawer. At test time the agent
+              must open unseen drawers with unseen handles as well as open more
+              than one drawer on a cabinet.
+            </p>
+          </div>
+        </div>
+        <a class="anchor" id="attn-a"></a>
+        <h2>Attention Analysis</h2>
+        <p>
+          To get an insight into how the transformer architecture enables the
+          policy to solve environments more succesfully, we analyze the learned
+          attention on the Couch Moving environment.
+        </p>
+        <div class="attn-video" style="text-align: center">
+          <video autoplay="" muted="" loop="" height="100%" style="width: 75%">
+            <source src="./public/videos/attn.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <p>
+          In Couch Moving, the abstract trajectory is composed of high-level
+          states which are simply the 2D position of the high-level agent moving
+          through the maze. We can treat this as a map and easily visualize it
+          over the map. The above video shows the attention over the abstract
+          trajectory / map as the agent solves the task, with dark blue
+          representing high attention and light blue representing minimal
+          attention. We observe that when the agent is in a chamber, it learns
+          to pay attention to the next or next next chamber, both of which are
+          indicative of which orientation the next corner is in. With this
+          attention, the agent is capable of making the correct decision on
+          whether to rotate or not in order to move through the next corner.
+          Results show that transformer architectures achieves much higher success
+          rates compared to LSTM architectures or sub-goal conditioned policies.
+        </p>
+      </section>
+      <section class="citation">
+        <h2>Bibtex</h2>
+        <pre><code>@article{tao2022tr2,
+  title     = {Abstract-to-Executable Trajectory Translation for One-Shot Task Generalization}, 
+  author    = {Tao, Stone and Li, Xiaochen and Mu, Tongzhou and Huang, Zhiao and Qin, Yuzhe and Su, Hao},
+  journal   = {arXiv},
+  year      = {2022},
+}</code></pre>
+      </section>
+      <section class="acknowledgements">
+        <h2>Acknowledgements</h2>
+        <p>
+          Special thanks to Jiayuan Gu for feedback on figures, and additional
+          members of the SU Lab for writing feedback.
+        </p>
+      </section>
+    </main>
+  </body>
+</html>
