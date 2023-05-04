@@ -32,13 +32,13 @@
           <div class="bar"></div
         ></a>
         <a class="barWrapper" clear href="#tr2-a" id="bar3"
-          ><span>Trajectory Translation</span>
+          ><span>Framework of AdaptDiffuser</span>
           <div class="bar"></div
         ></a>
-        <a class="barWrapper" clear href="#results-a" id="bar4"
-          ><span>Results</span>
-          <div class="bar"></div
-        ></a>
+<!--        <a class="barWrapper" clear href="#results-a" id="bar4"-->
+<!--          ><span>Results</span>-->
+<!--          <div class="bar"></div-->
+<!--        ></a>-->
         <a class="barWrapper" clear href="#attn-a" id="bar5"
           ><span>Attention Analysis</span>
           <div class="bar"></div
@@ -46,7 +46,7 @@
       </div>
     </div>
     <main class="content">
-      <section class="heading">
+      <section class="heading" style="text-align: center!important;">
         <h1 class="title">
           AdaptDiffuser: Diffusion Models as Adaptive Self-evolving Planners
         </h1>
@@ -156,16 +156,16 @@
         </section>
         <a class="anchor" id="abstract-a"></a>
         <h2>Abstract</h2>
-        <p class="abstract" style="font-family: 'Times New Roman', Arial;">
+        <p class="abstract" style="font-family: 'Times New Roman', Arial; text-align: justify">
           Diffusion models have demonstrated their powerful generative capability in many tasks, with great potential to serve as a paradigm for offline reinforcement learning. However, the quality of the diffusion model is limited by the insufficient diversity of training data, which hinders the performance of planning and the generalizability to new tasks. This paper introduces AdaptDiffuser, an evolutionary planning method with diffusion that can self-evolve to improve the diffusion model hence a better planner, not only for seen tasks but can also adapt to unseen tasks. AdaptDiffuser enables the generation of rich synthetic expert data for goal-conditioned tasks using guidance from reward gradients. It then selects high-quality data via a discriminator to finetune the diffusion model, which improves the generalization ability to unseen tasks. Empirical experiments on two benchmark environments and two carefully designed unseen tasks in KUKA industrial robot arm and Maze2D environments demonstrate the effectiveness of AdaptDiffuser. For example, AdaptDiffuser not only outperforms the previous art <a href="https://diffusion-planning.github.io/" rel="noreferrer" target="_blank">Diffuser</a> by 20.8% on Maze2D and 7.5% on MuJoCo locomotion, but also adapts better to new tasks, e.g., KUKA pick-and-place, by 27.9% without requiring additional expert data.
         </p>
       </section>
       <br />
       <section class="head-media">
-        <div style="display: flex; width: 90%; margin: auto">
+        <div style="display: flex; width: 90%; height:auto; margin: auto">
           &nbsp;&nbsp;&nbsp;&nbsp;
           <img
-          style="width: 60%"
+          style="width: 60%; height: auto"
           src="./public/images/bar.png"
           />
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -210,21 +210,24 @@
           a high-level agent. The objective of the low-level agent now is to
           simply follow the high-level agent as closely as possible.
         </p> -->
-        <p style="font-family: 'Times New Roman'""> To improve the adaptability of the diffusion model to diverse tasks, rich data with distinct objectives is generated, guided by each task’s reward function. During the diffusion denoising process, we utilize a pre-trained denoising U-Net to progressively generate high-quality trajectories. At each denoising time step, we take the task-specific reward of a trajectory to adjust the gradient of state and action sequence, thereby creating trajectories that align with specific task objectives. Subsequently, the generated synthetic trajectory is evaluated by a discriminator to see if it meets the standards. If yes, it is incorporated into a data pool to fine-tune the diffusion model. The procedure iteratively enhances the generalizability of our model for both seen and unseen settings.
+        <p style="font-family: 'Times New Roman'"> To improve the adaptability of the diffusion model to diverse tasks, rich data with distinct objectives is generated, guided by each task’s reward function. During the diffusion denoising process, we utilize a pre-trained denoising U-Net to progressively generate high-quality trajectories. At each denoising time step, we take the task-specific reward of a trajectory to adjust the gradient of state and action sequence, thereby creating trajectories that align with specific task objectives. Subsequently, the generated synthetic trajectory is evaluated by a discriminator to see if it meets the standards. If yes, it is incorporated into a data pool to fine-tune the diffusion model. The procedure iteratively enhances the generalizability of our model for both seen and unseen settings.
         </p>
 
-        <div style="display: flex; margin: auto; width: 95%">
+        <div style="display: flex; margin: auto; width: 95%; height: auto">
           <img
-          style="width: 50%"
+          style="width: 50%; height: auto"
           src="./public/images/framework.png"
           />
           &nbsp;&nbsp;&nbsp;&nbsp;
           <br />
           <img
-          style="width: 50%;%"
+          style="width: 50%; height: auto"
           src="./public/video/video1.gif"
           />
         </div>
+        <video autoplay="" muted="" loop="" height="100%">
+          <source src="./public/video/video1.mp4" type="video/mp4" />
+        </video>
         <!-- <h2>Method</h2>
         <p>
           Below shows an illustration of the abstract-to-executable trajectory
@@ -402,15 +405,16 @@
 <!--          Results show that transformer architectures achieves much higher success-->
 <!--          rates compared to LSTM architectures or sub-goal conditioned policies.-->
 <!--        </p>-->
-<!--      </section>-->
+      </section>
       <section class="citation">
         <h2>Bibtex</h2>
-        <pre><code>@article{liang2023adaptdiffuser,
-          title={AdaptDiffuser: Diffusion Models as Adaptive Self-evolving Planners},
-          author={Liang, Zhixuan and Mu, Yao and Ding, Mingyu and Ni, Fei and Tomizuka, Masayoshi and Luo, Ping},
-          journal={arXiv preprint arXiv:2302.01877},
-          year={2023}
-        }</code></pre>
+        <pre>
+<code>@inproceedings{liang2023adaptdiffuser,
+    title={AdaptDiffuser: Diffusion Models as Adaptive Self-evolving Planners},
+    author={Zhixuan Liang and Yao Mu and Mingyu Ding and Fei Ni and Masayoshi Tomizuka and Ping Luo},
+    booktitle = {International Conference on Machine Learning},
+    year={2023},
+}</code></pre>
       </section>
 <!--      <section class="acknowledgements">-->
 <!--        <h2>Acknowledgements</h2>-->
