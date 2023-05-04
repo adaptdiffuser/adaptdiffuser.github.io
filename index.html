@@ -160,22 +160,17 @@
           Diffusion models have demonstrated their powerful generative capability in many tasks, with great potential to serve as a paradigm for offline reinforcement learning. However, the quality of the diffusion model is limited by the insufficient diversity of training data, which hinders the performance of planning and the generalizability to new tasks. This paper introduces AdaptDiffuser, an evolutionary planning method with diffusion that can self-evolve to improve the diffusion model hence a better planner, not only for seen tasks but can also adapt to unseen tasks. AdaptDiffuser enables the generation of rich synthetic expert data for goal-conditioned tasks using guidance from reward gradients. It then selects high-quality data via a discriminator to finetune the diffusion model, which improves the generalization ability to unseen tasks. Empirical experiments on two benchmark environments and two carefully designed unseen tasks in KUKA industrial robot arm and Maze2D environments demonstrate the effectiveness of AdaptDiffuser. For example, AdaptDiffuser not only outperforms the previous art <a href="https://diffusion-planning.github.io/" rel="noreferrer" target="_blank">Diffuser</a> by 20.8% on Maze2D and 7.5% on MuJoCo locomotion, but also adapts better to new tasks, e.g., KUKA pick-and-place, by 27.9% without requiring additional expert data.
         </p>
       </section>
-      <br />
       <section class="head-media">
-        <div style="display: flex; width: 90%; height:auto; margin: auto">
-          &nbsp;&nbsp;&nbsp;&nbsp;
+        <div style="display: flex; width: 100%; height:auto; margin: auto; justify-content: center">
           <img
-          style="width: 60%; height: auto"
+          style="width: 50%; height: auto"
           src="./public/images/bar.png"
           />
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <p class="caption" style="text-align: justify; font-family: 'Times New Roman'"><br />
+        </div>
+        <p class="caption" style="text-align: justify; font-family: 'Times New Roman'">
             <strong>Overall framework and performance comparison of AdaptDiffuser.</strong> It enables diffusion models to generate rich synthetic expert data using guidance from reward gradients of either seen or unseen goal-conditioned tasks. Then, it iteratively selects high-quality data via a discriminator to finetune the diffusion model for self-evolving, leading to improved performance on seen tasks and better generalizability to unseen tasks.
           </p>
-
-        </div>
       </section>
-      <br />
 <!--      <section class="head-media">-->
 <!--        <video autoplay="" muted="" loop="" height="100%">-->
 <!--          <source-->
@@ -224,10 +219,12 @@
           style="width: 50%; height: auto"
           src="./public/video/video1.gif"
           />
+<!--          <video autoplay="" muted="" loop="" width="60%">-->
+<!--          <source src="./public/video/video1.mp4" type="video/mp4" />-->
+<!--        </video>-->
         </div>
-        <video autoplay="" muted="" loop="" height="100%">
-          <source src="./public/video/video1.mp4" type="video/mp4" />
-        </video>
+        <br />
+
         <!-- <h2>Method</h2>
         <p>
           Below shows an illustration of the abstract-to-executable trajectory
