@@ -35,14 +35,14 @@
           ><span>Framework of AdaptDiffuser</span>
           <div class="bar"></div
         ></a>
-<!--        <a class="barWrapper" clear href="#results-a" id="bar4"-->
-<!--          ><span>Results</span>-->
-<!--          <div class="bar"></div-->
-<!--        ></a>-->
-        <a class="barWrapper" clear href="#attn-a" id="bar5"
-          ><span>Attention Analysis</span>
+        <a class="barWrapper" clear href="#results-a" id="bar4"
+          ><span>Results</span>
           <div class="bar"></div
         ></a>
+<!--        <a class="barWrapper" clear href="#attn-a" id="bar5"-->
+<!--          ><span>Attention Analysis</span>-->
+<!--          <div class="bar"></div-->
+<!--        ></a>-->
       </div>
     </div>
     <main class="content">
@@ -85,7 +85,7 @@
             <li>
               <span
                 ><a
-                  href="https://scholar.google.com/citations?user=qCXW6sYAAAAJ&hl=zh-CN"
+                  href="https://fei-ni.github.io/"
                   rel="noreferrer"
                   target="_blank"
                   >Fei Ni</a
@@ -161,15 +161,16 @@
         </p>
       </section>
       <section class="head-media">
-        <div style="display: flex; width: 100%; height:auto; margin: auto; justify-content: center">
+        <div style="display: flex; width: 100%; height:auto; margin: auto; justify-content: center; align-items: center">
           <img
           style="width: 50%; height: auto"
           src="./public/images/bar.png"
           />
-        </div>
-        <p class="caption" style="text-align: justify; font-family: 'Times New Roman'">
-            <strong>Overall framework and performance comparison of AdaptDiffuser.</strong> It enables diffusion models to generate rich synthetic expert data using guidance from reward gradients of either seen or unseen goal-conditioned tasks. Then, it iteratively selects high-quality data via a discriminator to finetune the diffusion model for self-evolving, leading to improved performance on seen tasks and better generalizability to unseen tasks.
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <p class="caption" style="text-align: justify; font-family: 'Times New Roman'; width: 40%">
+            <strong>Overall framework and performance comparison of AdaptDiffuser.</strong> It enables diffusion models to generate rich synthetic expert data using guidance from reward gradients of either seen or unseen tasks. Then, it iteratively selects high-quality data via a discriminator to fine-tune the model for self-evolving, leading to improved performance on seen tasks and better generalizability to unseen tasks.
           </p>
+        </div>
       </section>
 <!--      <section class="head-media">-->
 <!--        <video autoplay="" muted="" loop="" height="100%">-->
@@ -198,14 +199,7 @@
       <a class="anchor" id="tr2-a"></a>
       <section class="details">
         <h2>Framework of AdaptDiffuser</h2>
-        <!-- <p>
-          The core idea of our work is to simplify task-solving by enabling the
-          low-level agent to explicitly focus only on low-level skills such as
-          object manipulation and leave the high-level planning to be solved by
-          a high-level agent. The objective of the low-level agent now is to
-          simply follow the high-level agent as closely as possible.
-        </p> -->
-        <p style="font-family: 'Times New Roman'"> To improve the adaptability of the diffusion model to diverse tasks, rich data with distinct objectives is generated, guided by each task’s reward function. During the diffusion denoising process, we utilize a pre-trained denoising U-Net to progressively generate high-quality trajectories. At each denoising time step, we take the task-specific reward of a trajectory to adjust the gradient of state and action sequence, thereby creating trajectories that align with specific task objectives. Subsequently, the generated synthetic trajectory is evaluated by a discriminator to see if it meets the standards. If yes, it is incorporated into a data pool to fine-tune the diffusion model. The procedure iteratively enhances the generalizability of our model for both seen and unseen settings.
+        <p style="font-family: 'Times New Roman',serif"> To improve the adaptability of the diffusion model to diverse tasks, rich data with distinct objectives is generated, guided by each task’s reward function. During the diffusion denoising process, we utilize a pre-trained denoising U-Net to progressively generate high-quality trajectories. At each denoising time step, we take the task-specific reward of a trajectory to adjust the gradient of state and action sequence, thereby creating trajectories that align with specific task objectives. Subsequently, the generated synthetic trajectory is evaluated by a discriminator to see if it meets the standards. If yes, it is incorporated into a data pool to fine-tune the diffusion model. The procedure iteratively enhances the generalizability of our model for both seen and unseen settings.
         </p>
 
         <div style="display: flex; margin: auto; width: 95%; height: auto">
@@ -219,38 +213,51 @@
           style="width: 50%; height: auto"
           src="./public/video/video1.gif"
           />
-<!--          <video autoplay="" muted="" loop="" width="60%">-->
-<!--          <source src="./public/video/video1.mp4" type="video/mp4" />-->
-<!--        </video>-->
         </div>
         <br />
 
-        <!-- <h2>Method</h2>
-        <p>
-          Below shows an illustration of the abstract-to-executable trajectory
-          translation architecture. All
-          <span style="color: blue">high-level states</span> from the abstract
-          trajectory are fed through one encoder and the past k
-          <span style="color: orange">low-level states</span> are fed through a
-          separate encoder to create tokens. The tokens form a sequence that is
-          given to the transformer model, and the final output embedding z<sub
-            >n+k-1</sub
-          >
-          is passed through an MLP to produce
-          <span style="color: red">actions</span>.
-        </p>
+        <a class="anchor" id="results-a"></a>
+        <h2>Results</h2>
+        <h3 style="margin-bottom: 0">Maze2D Navigation Task</h3>
+        <div style="display: flex; margin: auto; width: 95%; height: auto; justify-content: center">
         <img
-          style="width: 100%"
-          src="./public/translation_transformer_architecture.png"
+          style="width: 75%; height: auto"
+          src="./public/images/maze1.png"
         />
-        <p>
-          This model serves as the backbone and we train a policy using PPO and
-          a general trajectory following reward (detailed in equation 1 of the
-          paper) that encourages the agent to mimic the abstract trajectory as
-          closely as possible.
-        </p> -->
-<!--        <a class="anchor" id="results-a"></a>-->
-<!--        <h2>Results</h2>-->
+        </div>
+        <p class="caption" style="text-align: justify; font-family: 'Times New Roman',serif; margin-top: 0; margin-bottom: 0">
+          <strong>Hard Cases of Maze2D with Long Planning Path.</strong> Paths are generated in the Maze2D with a specified start and goal condition.
+        </p>
+        <div style="display: flex; margin: auto; width: 95%; height: auto; justify-content: center">
+        <img
+          style="width: 75%; height: auto"
+          src="./public/images/maze_gold.png"
+        />
+        </div>
+        <p class="caption" style="text-align: justify; font-family: 'Times New Roman',serif; margin-top: 0">
+          <strong>Maze2d Navigation with Gold Coin Picking Task.</strong> Subfigures (a) (b) show the optimal path when there are no gold coins in the Maze. (The generated routes walk at the bottom of the Maze.) And subfigures (c) (d) add additional reward in (4,2) position of the Maze. The planners generate new paths that pass through the gold coin as shown in subfigures (c) (d). (The newly generated routes walk in the middle of the maze.)
+        </p>
+        <h3>MuJoCo Locomotion Task</h3>
+        <div style="display: flex; margin: auto; width: 95%; height: auto">
+        <video autoplay="" muted="" loop="" width="30%">
+          <source src="./public/video/pretrained/hopper-medium-expert-v2.mp4" type="video/mp4" />
+        </video>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <video autoplay="" muted="" loop="" width="30%">
+          <source src="./public/video/fine/hopper-medium-expert-v2.mp4" type="video/mp4" />
+        </video>
+        </div>
+        <h3>More Demos of KUKA Pick and Place Task</h3>
+        <div style="display: flex; margin: auto; width: 95%; height: auto">
+        <video autoplay="" muted="" loop="" width="50%">
+          <source src="./public/video/video2.mp4" type="video/mp4" />
+        </video>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <video autoplay="" muted="" loop="" width="50%">
+          <source src="./public/video/video1.mp4" type="video/mp4" />
+        </video>
+        </div>
+
 <!--        <p>-->
 <!--          We show example translations of abstract trajectories executed-->
 <!--          trajectories below as well as detail the environments used and domain-->
@@ -266,115 +273,6 @@
 <!--          &lt;!&ndash; Note that while objects like blocks and drawers are rendered in the abstract trajectory display, the abstract trajectory itself only contains 3D position information. &ndash;&gt;-->
 <!--        </p>-->
 
-<!--        <div class="abstractexecutable">-->
-<!--          <p>-->
-<!--            Show abstract-to-executable translations on-->
-<!--            <select id="task-select">-->
-<!--              <option>Test Tasks</option>-->
-<!--              <option>Train Tasks</option>-->
-<!--            </select>-->
-<!--          </p>-->
-<!--          <div class="col-title">-->
-<!--            <p>Abstract Trajectory</p>-->
-<!--            <p>Executed Trajectory</p>-->
-<!--          </div>-->
-<!--          <div>-->
-<!--            <video autoplay="" muted="" loop="" height="100%">-->
-<!--              <source-->
-<!--                src="./public/videos/box_high_level.mp4"-->
-<!--                type="video/mp4"-->
-<!--              />-->
-<!--            </video>-->
-<!--            <video autoplay="" muted="" loop="" height="100%">-->
-<!--              <source-->
-<!--                src="./public/videos/box_low_level.mp4"-->
-<!--                type="video/mp4"-->
-<!--              />-->
-<!--            </video>-->
-<!--            <p>-->
-<!--              <strong>Box Pusher</strong> <br />-->
-<!--              The training task is to control an agent (black box) to move a-->
-<!--              green box to a target (blue sphere). The high-level agent can-->
-<!--              magically grasp and thus drag the green box. However, the-->
-<!--              low-level agent is restricted to only pushing and must process the-->
-<!--              abstract trajectory to determine which direction to push the green-->
-<!--              box in. At test time there are obstacles observable only by the-->
-<!--              high-level agent.-->
-<!--            </p>-->
-<!--          </div>-->
-<!--          <div>-->
-<!--            <video autoplay="" muted="" loop="" height="100%">-->
-<!--              <source-->
-<!--                src="./public/videos/couch_moving_high_level.mp4"-->
-<!--                type="video/mp4"-->
-<!--              />-->
-<!--            </video>-->
-<!--            <video autoplay="" muted="" loop="" height="100%">-->
-<!--              <source-->
-<!--                src="./public/videos/couch_moving_low_level.mp4"-->
-<!--                type="video/mp4"-->
-<!--              />-->
-<!--            </video>-->
-<!--            <p>-->
-<!--              <strong>Couch Moving</strong> <br />-->
-<!--              The training task is to move the couch shaped agent through a map-->
-<!--              of chambers and corners. The agent's couch morphology means that-->
-<!--              the agent must rotate in chambers ahead of time in order to go-->
-<!--              through corners. The high-level agent simply tells the low-level-->
-<!--              agent the path through the map, indicating where corners are, but-->
-<!--              it is up to the low-level agent to process this information to-->
-<!--              determine when to rotate in chambers. At test time, maps are-->
-<!--              longer and vary more.-->
-<!--            </p>-->
-<!--          </div>-->
-<!--          <div>-->
-<!--            <video autoplay="" muted="" loop="" height="100%">-->
-<!--              <source-->
-<!--                src="./public/videos/stack_high_level.mp4"-->
-<!--                type="video/mp4"-->
-<!--              />-->
-<!--            </video>-->
-<!--            <video autoplay="" muted="" loop="" height="100%">-->
-<!--              <source-->
-<!--                src="./public/videos/stack_low_level.mp4"-->
-<!--                type="video/mp4"-->
-<!--              />-->
-<!--            </video>-->
-<!--            <p>-->
-<!--              <strong>Block Stacking</strong> <br />-->
-<!--              The training task is to stack a block with a robot arm. The-->
-<!--              high-level agent can magically grasp and release blocks anywhere-->
-<!--              and move easily through space. The low-level agent must process-->
-<!--              the abstract trajectory to determine where to pick up the block-->
-<!--              and where to stack it. At test time an agent has to stack multiple-->
-<!--              blocks in a row in locations beyond the training distribution.-->
-<!--            </p>-->
-<!--          </div>-->
-<!--          <div>-->
-<!--            <video autoplay="" muted="" loop="" height="100%">-->
-<!--              <source-->
-<!--                src="./public/videos/drawer_high_level.mp4"-->
-<!--                type="video/mp4"-->
-<!--              />-->
-<!--            </video>-->
-<!--            <video autoplay="" muted="" loop="" height="100%">-->
-<!--              <source-->
-<!--                src="./public/videos/drawer_low_level.mp4"-->
-<!--                type="video/mp4"-->
-<!--              />-->
-<!--            </video>-->
-<!--            <p>-->
-<!--              <strong>Open Drawer</strong> <br />-->
-<!--              The training task is open various drawers on cabinets with a-->
-<!--              mobile robot arm. The high-level agent can magically grasp and-->
-<!--              pull open drawers easily. The low-level agent must process the-->
-<!--              abstract trajectory to determine how to follow the abstract-->
-<!--              trajectory and how to pull open the drawer. At test time the agent-->
-<!--              must open unseen drawers with unseen handles as well as open more-->
-<!--              than one drawer on a cabinet.-->
-<!--            </p>-->
-<!--          </div>-->
-<!--        </div>-->
 <!--        <a class="anchor" id="attn-a"></a>-->
 <!--        <h2>Attention Analysis</h2>-->
 <!--        <p>-->
