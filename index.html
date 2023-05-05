@@ -172,30 +172,7 @@
           </p>
         </div>
       </section>
-<!--      <section class="head-media">-->
-<!--        <video autoplay="" muted="" loop="" height="100%">-->
-<!--          <source-->
-<!--            src="./public/videos/castle-stack-medium.mp4"-->
-<!--            type="video/mp4"-->
-<!--          />-->
-<!--        </video>-->
-<!--        <video autoplay="" muted="" loop="" height="100%">-->
-<!--          <source src="./public/videos/creeperonsnow.mp4" type="video/mp4" />-->
-<!--        </video>-->
-<!--        <video autoplay="" muted="" loop="" height="100%">-->
-<!--          <source src="./public/videos/snowgolem.mp4" type="video/mp4" />-->
-<!--        </video>-->
-<!--        <video autoplay="" muted="" loop="" height="100%">-->
-<!--          <source src="./public/videos/torch.mp4" type="video/mp4" />-->
-<!--        </video>-->
-<!--        <br />-->
-<!--        <p class="caption">-->
-<!--          Videos of succesful long-horizon block stacking tasks performed in the-->
-<!--          real-world using a trajectory translation policy trained in-->
-<!--          simulation. Tasks are unseen and require manipulation of blocks in-->
-<!--          locations beyond the original training distribution.-->
-<!--        </p>-->
-<!--      </section>-->
+
       <a class="anchor" id="tr2-a"></a>
       <section class="details">
         <h2>Framework of AdaptDiffuser</h2>
@@ -221,7 +198,7 @@
         <h3 style="margin-bottom: 0">Maze2D Navigation Task</h3>
         <div style="display: flex; margin: auto; width: 95%; height: auto; justify-content: center">
         <img
-          style="width: 75%; height: auto"
+          style="width: 65%; height: auto"
           src="./public/images/maze1.png"
         />
         </div>
@@ -230,24 +207,33 @@
         </p>
         <div style="display: flex; margin: auto; width: 95%; height: auto; justify-content: center">
         <img
-          style="width: 75%; height: auto"
+          style="width: 65%; height: auto"
           src="./public/images/maze_gold.png"
         />
         </div>
         <p class="caption" style="text-align: justify; font-family: 'Times New Roman',serif; margin-top: 0">
-          <strong>Maze2d Navigation with Gold Coin Picking Task.</strong> Subfigures (a) (b) show the optimal path when there are no gold coins in the Maze. (The generated routes walk at the bottom of the Maze.) And subfigures (c) (d) add additional reward in (4,2) position of the Maze. The planners generate new paths that pass through the gold coin as shown in subfigures (c) (d). (The newly generated routes walk in the middle of the maze.)
+          <strong>Maze2d Navigation with Gold Coin Picking Task.</strong> Subfigures (a) (b) show the optimal path when there are no gold coins in the Maze. (The generated routes walk at the bottom of the Maze.) And subfigures (c) (d) add additional reward in (4, 2) position of the Maze. The planners generate new paths that pass through the gold coin as shown in subfigures (c) (d). (The newly generated routes walk in the middle of the maze.)
         </p>
-        <h3>MuJoCo Locomotion Task</h3>
-        <div style="display: flex; margin: auto; width: 95%; height: auto">
-        <video autoplay="" muted="" loop="" width="30%">
-          <source src="./public/video/pretrained/hopper-medium-expert-v2.mp4" type="video/mp4" />
+        <h3 style="margin-bottom: 0">MuJoCo Locomotion Task</h3>
+        <div style="display: flex; margin: auto; width: 95%; height: auto; justify-content: space-between">
+          <video autoplay="" muted="" loop="" width="25%">
+          <source src="./public/video/fine/halfcheetah-medium.mp4" type="video/mp4" />
         </video>
-          &nbsp;&nbsp;&nbsp;&nbsp;
-          <video autoplay="" muted="" loop="" width="30%">
-          <source src="./public/video/fine/hopper-medium-expert-v2.mp4" type="video/mp4" />
+
+        <video autoplay="" muted="" loop="" width="25%">
+          <source src="./public/video/fine/hopper-medium-v2.mp4" type="video/mp4" />
+        </video>
+
+          <video autoplay="" muted="" loop="" width="25%">
+          <source src="./public/video/fine/walker2d-medium-v2.mp4" type="video/mp4" />
         </video>
         </div>
-        <h3>More Demos of KUKA Pick and Place Task</h3>
+        <div class="col-title" style="display: flex; width: 95%; height: auto; justify-content: space-between; margin: 0; font-family: 'Times New Roman',serif">
+            <p style="margin-left: 4em">HalfCheetah Medium</p>
+            <p>Hopper Medium</p>
+            <p style="margin-right: 2em">Walker2d Medium</p>
+          </div>
+        <h3>Demos of KUKA Pick and Place Task</h3>
         <div style="display: flex; margin: auto; width: 95%; height: auto">
         <video autoplay="" muted="" loop="" width="50%">
           <source src="./public/video/video2.mp4" type="video/mp4" />
@@ -257,21 +243,6 @@
           <source src="./public/video/video1.mp4" type="video/mp4" />
         </video>
         </div>
-
-<!--        <p>-->
-<!--          We show example translations of abstract trajectories executed-->
-<!--          trajectories below as well as detail the environments used and domain-->
-<!--          gaps bridged. The left column of videos shows the abstract trajectory-->
-<!--          and the right column shows the executed trajectory. The high-level-->
-<!--          agents are written using simple heuristics and are represented as a-->
-<!--          point mass floating in 2D/3D space. As the abstract trajectory lacks-->
-<!--          low-level details, the low-level agent must learn and discover these-->
-<!--          details such as object manipulation and apply them while mimicing the-->
-<!--          abstract trajectory. Furthermore, re-planning is a feasible feature as-->
-<!--          abstract trajectories can be re-generated to handle mistakes or-->
-<!--          external interventions.-->
-<!--          &lt;!&ndash; Note that while objects like blocks and drawers are rendered in the abstract trajectory display, the abstract trajectory itself only contains 3D position information. &ndash;&gt;-->
-<!--        </p>-->
 
 <!--        <a class="anchor" id="attn-a"></a>-->
 <!--        <h2>Attention Analysis</h2>-->
@@ -285,21 +256,6 @@
 <!--            <source src="./public/videos/attn.mp4" type="video/mp4" />-->
 <!--          </video>-->
 <!--        </div>-->
-<!--        <p>-->
-<!--          In Couch Moving, the abstract trajectory is composed of high-level-->
-<!--          states which are simply the 2D position of the high-level agent moving-->
-<!--          through the maze. We can treat this as a map and easily visualize it-->
-<!--          over the map. The above video shows the attention over the abstract-->
-<!--          trajectory / map as the agent solves the task, with dark blue-->
-<!--          representing high attention and light blue representing minimal-->
-<!--          attention. We observe that when the agent is in a chamber, it learns-->
-<!--          to pay attention to the next or next next chamber, both of which are-->
-<!--          indicative of which orientation the next corner is in. With this-->
-<!--          attention, the agent is capable of making the correct decision on-->
-<!--          whether to rotate or not in order to move through the next corner.-->
-<!--          Results show that transformer architectures achieves much higher success-->
-<!--          rates compared to LSTM architectures or sub-goal conditioned policies.-->
-<!--        </p>-->
       </section>
       <section class="citation">
         <h2>Bibtex</h2>
@@ -311,11 +267,12 @@
     year={2023},
 }</code></pre>
       </section>
+      <br />
 <!--      <section class="acknowledgements">-->
 <!--        <h2>Acknowledgements</h2>-->
 <!--        <p>-->
-<!--          Special thanks to Jiayuan Gu for feedback on figures, and additional-->
-<!--          members of the SU Lab for writing feedback.-->
+<!--          Special thanks to additional-->
+<!--          members of the HKU-MMLab for writing feedback.-->
 <!--        </p>-->
 <!--      </section>-->
     </main>
