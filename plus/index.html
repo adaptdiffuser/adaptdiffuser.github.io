@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="description"
+      content="AdaptDiffuser++: Self-evolving Diffusion Models for Adaptive Planning and Dexterous Manipulation."
+    />
+    <meta name="keywords" content="Reinforcement Learning, Diffusion Model, Trajectory Optimization" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      AdaptDiffuser++: Self-evolving Diffusion Models for Adaptive Planning and Dexterous Manipulation
+    </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="./public/index.css" rel="stylesheet" />
+    <link href="./public/media.css" rel="stylesheet" />
+    <link href="./public/sidebars.css" rel="stylesheet" />
+    <link href="./public/navbar.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="./public/js/base.js"></script>
+  </head>
+
+  <body>
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://liang-zx.github.io/">
+      <span class="icon">
+          <svg class="svg-inline--fa fa-home fa-w-18" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="home" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M280.37 148.26L96 300.11V464a16 16 0 0 0 16 16l112.06-.29a16 16 0 0 0 15.92-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47L488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v72.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31A12 12 0 0 0 45.15 301l235.22-193.74a12.19 12.19 0 0 1 15.3 0L530.9 301a12 12 0 0 0 16.9-1.6l25.5-31a12 12 0 0 0-1.7-16.93z"></path></svg>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          Related Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://adaptdiffuser.github.io/plus/">
+            AdaptDiffuser++
+          </a>
+          <a class="navbar-item" href="https://metadiffuser.github.io/">
+            MetaDiffuser
+          </a>
+          <a class="navbar-item" href="https://skilldiffuser.github.io/">
+            SkillDiffuser
+          </a>
+          <a class="navbar-item" href="https://dexdiffuser.github.io/">
+            DexHandDiff
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+    <div class="sidebarsWrapper">
+      <div class="sidebars">
+        <a class="barWrapper" clear href="#abstract-a" id="bar2"
+          ><span>Abstract</span>
+          <div class="bar"></div
+        ></a>
+        <a class="barWrapper" clear href="#tr2-a" id="bar3"
+          ><span>Framework of AdaptDiffuser++</span>
+          <div class="bar"></div
+        ></a>
+        <a class="barWrapper" clear href="#results-a" id="bar4"
+          ><span>Results</span>
+          <div class="bar"></div
+        ></a>
+<!--        <a class="barWrapper" clear href="#attn-a" id="bar5"-->
+<!--          ><span>Attention Analysis</span>-->
+<!--          <div class="bar"></div-->
+<!--        ></a>-->
+      </div>
+    </div>
+    <main class="content">
+      <section class="heading" style="text-align: center!important;">
+        <h1 class="title">
+          AdaptDiffuser++: Self-evolving Diffusion Models for Adaptive Planning and Dexterous Manipulation
+        </h1>
+        <section class="authors">
+          <ul>
+            <li>
+              <span
+                ><a
+                  href="https://liang-zx.github.io/"
+                  rel="noreferrer"
+                  target="_blank"
+              >Zhixuan Liang</a
+                ><sup>1</sup></span
+              >
+            </li>
+            <li>
+              <span
+                ><a
+                  href="https://yaomarkmu.github.io/"
+                  rel="noreferrer"
+                  target="_blank"
+                  >Yao Mu</a
+                ><sup>3</sup></span
+              >
+            </li>
+            <li>
+              <span
+                ><a
+                  href=""
+                  rel="noreferrer"
+                  target="_blank"
+                  >Dihong Huang</a
+                ><sup>3</sup></span
+              >
+            </li>
+            <li>
+              <span
+                ><a
+                  href="https://fei-ni.github.io/"
+                  rel="noreferrer"
+                  target="_blank"
+                  >Fei Ni</a
+                ><sup>4</sup></span
+              >
+            </li>
+            <li>
+              <span
+                ><a
+                  href="https://dingmyu.github.io/"
+                  rel="noreferrer"
+                  target="_blank"
+                  >Mingyu Ding</a
+                ><sup>2</sup></span
+              >
+            </li>
+            <li>
+              <span
+                ><a
+                  href="https://me.berkeley.edu/people/masayoshi-tomizuka/"
+                  rel="noreferrer"
+                  target="_blank"
+                  >Masayoshi Tomizuka</a
+                ><sup>2</sup></span
+              >
+            </li>
+            <li>
+              <span
+                ><a
+                  href="http://luoping.me/"
+                  rel="noreferrer"
+                  target="_blank"
+                  >Ping Luo</a
+                ><sup>1</sup></span
+              >
+            </li>
+          </ul>
+        </section>
+        <section class="affiliations">
+          <ul>
+            <li><sup>1</sup>The University of Hong Kong,</li>
+            <li><sup>2</sup>UC Berkeley,</li>
+            <li><sup>3</sup>Shanghai Jiao Tong University,</li>
+            <li><sup>4</sup>Imperical College London</li>
+          </ul>
+        </section>
+<!--        <section class="conference">-->
+<!--          <h3>-->
+<!--          ICML 2023 Oral-->
+<!--          </h3>-->
+<!--        </section>-->
+        <section class="links">
+          <ul>
+<!--            <a href="https://arxiv.org/abs/2302.01877" rel="noreferrer" target="_blank">-->
+<!--              <li>-->
+<!--                <span class="icon"> <img src="./public/paper.svg" /> </span-->
+<!--                ><span>Paper</span>-->
+<!--              </li>-->
+<!--            </a>-->
+<!--            <a-->
+<!--              href="https://youtu.be/ZjRYlRRV9IA"-->
+<!--              rel="noreferrer"-->
+<!--              target="_blank"-->
+<!--            >-->
+<!--              <li>-->
+<!--                <span class="icon"> <img src="./public/video.svg" /> </span-->
+<!--                ><span>Video</span>-->
+<!--              </li>-->
+<!--            </a>-->
+            <a
+              href="https://github.com/Liang-ZX/adaptdiffuser"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <li>
+                <span class="icon">
+                  <img src="./public/github.svg" />
+                </span>
+                <span>Code</span>
+              </li>
+            </a>
+<!--            <a-->
+<!--              href="https://icml.cc/virtual/2023/oral/25574"-->
+<!--              rel="noreferrer"-->
+<!--              target="_blank"-->
+<!--             >-->
+<!--               <li><span class="icon"> <img src="./public/video.svg"/> </span-->
+<!--                ><span>Oral Talk</span>-->
+<!--               </li>-->
+<!--             </a>-->
+<!--            <a-->
+<!--              href="https://icml.cc/media/PosterPDFs/ICML%202023/25146.png?t=1689061703.9673672"-->
+<!--              rel="noreferrer"-->
+<!--              target="_blank"-->
+<!--            >-->
+<!--              <li>-->
+<!--                <span class="icon"> <img src="./public/poster.svg" style="width: 120%;filter: invert(100%); stroke-width: 200%"/> </span-->
+<!--                ><span>Poster</span>-->
+<!--              </li>-->
+<!--            </a>-->
+<!--            &lt;!&ndash; <a><li>Video</li></a> &ndash;&gt;-->
+          </ul>
+        </section>
+        <a class="anchor" id="abstract-a"></a>
+        <h2>Abstract</h2>
+        <p class="abstract" style="font-family: 'Times New Roman', Arial; text-align: justify">
+          Diffusion models have demonstrated remarkable generative capabilities for sequential decision-making and exhibit strong potential as a paradigm for offline reinforcement learning. However, their planning quality remains fundamentally constrained by the limited diversity of training data, which restricts both task performance and generalization to novel scenarios. In this work, we introduce AdaptDiffuser++, a self-evolutionary planning framework that progressively enhances diffusion-based policies through an iterative process of reward-guided synthetic trajectory generation and discriminator-based quality selection. This closed-loop mechanism produces diverse, high-quality, and dynamics-consistent "expert-like" behaviors without requiring additional real-world demonstrations, yielding a progressively stronger planner with improved performance on seen tasks and enhanced out-of-distribution adaptation. Empirically, AdaptDiffuser++ outperforms the baseline Diffuser by 20.8% on Maze2D and 7.5% on MuJoCo locomotion benchmarks, while achieving a +27.9% absolute improvement on unseen tasks such as KUKA pick-and-place, all without additional expert data. To further validate the generality of our approach, we extend AdaptDiffuser++ to contact-rich dexterous manipulation by integrating it with an interaction-aware, goal-conditioned diffusion planner following the DexHandDiff framework. On challenging Adroit and Shadow-Hand benchmarks, AdaptDiffuser++ consistently improves success rates over the base planner: +8.0% on Door Opening, +39.5% on goal-adaptive Pen Re-orientation (with in-domain performance reaching 100%), +14.8% on Hammer Striking, and +4.1% on Object Relocation. These results demonstrate that diffusion-based self-evolutionary augmentation constitutes a general and effective approach for developing stronger planners with enhanced performance and goal adaptability, spanning both standard offline RL benchmarks and contact-rich dexterous manipulation domains.
+        </p>
+      </section>
+      <section class="head-media">
+        <div style="display: flex; width: 100%; height:auto; margin: auto; justify-content: center; align-items: center">
+          <img
+          style="width: 50%; height: auto"
+          src="./public/images/bar.png"
+          />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <p class="caption" style="text-align: justify; font-family: 'Times New Roman'; width: 40%">
+            <strong>Overall framework and performance comparison of AdaptDiffuser++.</strong> It enables diffusion models to generate rich synthetic expert data using guidance from reward gradients of either seen or unseen tasks. Then, it iteratively selects high-quality data via a discriminator to fine-tune the model for self-evolving, leading to improved performance on seen tasks and better generalizability to unseen tasks.
+          </p>
+        </div>
+      </section>
+
+      <a class="anchor" id="tr2-a"></a>
+      <section class="details">
+        <h2>Framework of AdaptDiffuser++</h2>
+        <p style="font-family: 'Times New Roman',serif"> To improve the adaptability of the diffusion model to diverse tasks, rich data with distinct objectives is generated, guided by each task’s reward function. During the diffusion denoising process, we utilize a pre-trained denoising U-Net to progressively generate high-quality trajectories. At each denoising time step, we take the task-specific reward of a trajectory to adjust the gradient of state and action sequence, thereby creating trajectories that align with specific task objectives. Subsequently, the generated synthetic trajectory is evaluated by a discriminator to see if it meets the standards. If yes, it is incorporated into a data pool to fine-tune the diffusion model. The procedure iteratively enhances the generalizability of our model for both seen and unseen settings.
+        </p>
+
+        <div style="display: flex; margin: auto; width: 95%; height: auto">
+          <img
+          style="width: 50%; height: auto"
+          src="./public/images/framework.png"
+          />
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <br />
+          <img
+          style="width: 50%; height: auto"
+          src="./public/video/video1.gif"
+          />
+        </div>
+        <br />
+
+        <a class="anchor" id="results-a"></a>
+        <h2>Results</h2>
+        <h3 style="margin-bottom: 0">Maze2D Navigation Task</h3>
+        <div style="display: flex; margin: auto; width: 95%; height: auto; justify-content: center">
+        <img
+          style="width: 65%; height: auto"
+          src="./public/images/maze1.png"
+        />
+        </div>
+        <p class="caption" style="text-align: justify; font-family: 'Times New Roman',serif; margin-top: 0; margin-bottom: 0">
+          <strong>Hard Cases of Maze2D with Long Planning Path.</strong> Paths are generated in the Maze2D with a specified start and goal condition.
+        </p>
+        <div style="display: flex; margin: auto; width: 95%; height: auto; justify-content: center">
+        <img
+          style="width: 65%; height: auto"
+          src="./public/images/maze_gold.png"
+        />
+        </div>
+        <p class="caption" style="text-align: justify; font-family: 'Times New Roman',serif; margin-top: 0">
+          <strong>Maze2d Navigation with Gold Coin Picking Task.</strong> Subfigures (a) (b) show the optimal path when there are no gold coins in the Maze. (The generated routes walk at the bottom of the Maze.) And subfigures (c) (d) add additional reward in (4, 2) position of the Maze. The planners generate new paths that pass through the gold coin as shown in subfigures (c) (d). (The newly generated routes walk in the middle of the maze.)
+        </p>
+        <h3 style="margin-bottom: 0">MuJoCo Locomotion Task</h3>
+        <div style="display: flex; margin: auto; width: 95%; height: auto; justify-content: space-between">
+          <video autoplay="" muted="" loop="" width="25%">
+          <source src="./public/video/fine/halfcheetah-medium.mp4" type="video/mp4" />
+        </video>
+
+        <video autoplay="" muted="" loop="" width="25%">
+          <source src="./public/video/fine/hopper-medium-v2.mp4" type="video/mp4" />
+        </video>
+
+          <video autoplay="" muted="" loop="" width="25%">
+          <source src="./public/video/fine/walker2d-medium-v2.mp4" type="video/mp4" />
+        </video>
+        </div>
+        <div class="col-title" style="display: flex; width: 95%; height: auto; justify-content: space-between; margin: 0; font-family: 'Times New Roman',serif">
+            <p style="margin-left: 4em">HalfCheetah Medium</p>
+            <p>Hopper Medium</p>
+            <p style="margin-right: 2em">Walker2d Medium</p>
+          </div>
+        <h3>Demos of KUKA Pick and Place Task</h3>
+        <div style="display: flex; margin: auto; width: 95%; height: auto">
+        <video autoplay="" muted="" loop="" width="50%">
+          <source src="./public/video/video2.mp4" type="video/mp4" />
+        </video>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <video autoplay="" muted="" loop="" width="50%">
+          <source src="./public/video/video1.mp4" type="video/mp4" />
+        </video>
+        </div>
+
+<!--        <a class="anchor" id="attn-a"></a>-->
+<!--        <h2>Attention Analysis</h2>-->
+<!--        <p>-->
+<!--          To get an insight into how the transformer architecture enables the-->
+<!--          policy to solve environments more succesfully, we analyze the learned-->
+<!--          attention on the Couch Moving environment.-->
+<!--        </p>-->
+<!--        <div class="attn-video" style="text-align: center">-->
+<!--          <video autoplay="" muted="" loop="" height="100%" style="width: 75%">-->
+<!--            <source src="./public/videos/attn.mp4" type="video/mp4" />-->
+<!--          </video>-->
+<!--        </div>-->
+      </section>
+<!--      <section class="citation">-->
+<!--        <h2>Bibtex</h2>-->
+<!--        <pre>-->
+<!--<code>@inproceedings{liang2023adaptdiffuser,-->
+<!--  title={AdaptDiffuser: Diffusion Models as Adaptive Self-evolving Planners},-->
+<!--  author={Liang, Zhixuan and Mu, Yao and Ding, Mingyu and Ni, Fei and Tomizuka, Masayoshi and Luo, Ping},-->
+<!--  booktitle={International Conference on Machine Learning},-->
+<!--  pages={20725&#45;&#45;20745},-->
+<!--  year={2023},-->
+<!--  organization={PMLR}-->
+<!--}</code></pre>-->
+<!--      </section>-->
+<!--      <br />-->
+
+<!--      <section class="acknowledgements">-->
+<!--        <h2>Acknowledgements</h2>-->
+<!--        <p style="font-family: 'Times New Roman', Arial;">-->
+<!--          This paper is partially supported by the National Key R&D Program of China No.2022ZD0161000 and the General Research Fund of Hong Kong No.17200622. Special thanks to additional members of the HKU-MMLab for writing feedback.-->
+<!--        </p>-->
+<!--      </section>-->
+    </main>
+  </body>
+</html>
